@@ -1,0 +1,15 @@
+.home {
+  .buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+
+    .button {
+      cursor: pointer;
+      padding: 0.5rem;
+      border: 1px solid #ccc;
+      width: fit-content;
+    }
+  }
+}
