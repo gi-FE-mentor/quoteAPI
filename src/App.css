@@ -2,6 +2,7 @@
   text-align: center;
   width: 100%;
   height: 100%;
+  overflow: scroll;
 }
 
 .nav {
@@ -32,4 +33,10 @@
       width: fit-content;
     }
   }
+}
+
+.person {
+  width: fit-content;
+  margin-left: auto;
+  padding-right: 13rem;
 }

@@ -12,8 +12,32 @@ app.get('/', (req, res) => {
   res.send('Hello World!');
 });
 app.get('/quotes', (req, res) => {
-  res.send(quotes);
+  const { person: text } = req.query;
+  if (!text) {
+    res.send(quotes);
+  } else {
+    const textLowerCase = text.toLowerCase();
+
+    const allMatchQuotes = quotes.filter((quote) => {
+      const personArr = quote.person.split(' ');
+      return personArr.some((person) =>
+        person.toLowerCase().startsWith(textLowerCase)
+      );
+    });
+    res.send(allMatchQuotes);
+  }
 });
+
+app.get('/quotes/:id', (req, res) => {
+  const { id } = req.params;
+  const quoteByIndex = quotes.at(id);
+  if (quoteByIndex) {
+    res.send(quoteByIndex);
+  } else {
+    res.send(quotes[0]);
+  }
+});
+
 app.listen(port, () => {
   console.log(`Server is listen on ${port}`);
 });
