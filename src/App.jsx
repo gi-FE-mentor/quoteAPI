@@ -84,6 +84,11 @@ function App() {
                   onChange={(e) => {
                     setSearchInput(e.target.value);
                   }}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter') {
+                      onFetchQuotesByAuthor();
+                    }
+                  }}
                 />
                 <div className='button' onClick={onFetchQuotesByAuthor}>
                   Fetch by Author
